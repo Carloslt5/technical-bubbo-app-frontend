@@ -4,12 +4,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import HomePage from '../(screens)/home'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import BookList from '../(screens)/gallery'
+import theme from '../../styles/theme'
 
 const Tab = createBottomTabNavigator()
 
 const styles = StyleSheet.create({
   tab: {
-    // backgroundColor: theme.colors.green300,
+    backgroundColor: theme.colors.blue700,
     borderRadius: 6,
     paddingVertical: 6,
     paddingBottom: 6,
@@ -34,8 +35,8 @@ const AppRoutes = () => {
         headerShown: Platform.OS !== 'web',
         headerStatusBarHeight: 0,
         tabBarStyle: styles.tab,
-        // tabBarActiveTintColor: theme.colors.green100,
-        // tabBarInactiveTintColor: theme.colors.green500,
+        tabBarActiveTintColor: theme.colors.blue50,
+        tabBarInactiveTintColor: theme.colors.blue500,
       }}
     >
       <Tab.Screen
@@ -43,7 +44,13 @@ const AppRoutes = () => {
         component={HomePage}
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({ color }) => <Ionicons name='home' size={20} color={color} />,
+          tabBarIcon: ({ color }) => (
+            <Ionicons
+              name='home'
+              size={20}
+              color={color}
+            />
+          ),
         }}
       />
       <Tab.Screen
@@ -51,7 +58,13 @@ const AppRoutes = () => {
         component={BookList}
         options={{
           tabBarLabel: 'Gallery',
-          tabBarIcon: ({ color }) => <Ionicons name='grid' size={20} color={color} />,
+          tabBarIcon: ({ color }) => (
+            <Ionicons
+              name='grid'
+              size={20}
+              color={color}
+            />
+          ),
         }}
       />
     </Tab.Navigator>

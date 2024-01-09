@@ -1,9 +1,17 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { SafeAreaView, StyleSheet, Text } from 'react-native'
 
 const HomePage = () => {
+  const styles = StyleSheet.create({
+    container: {
+      alignItems: 'center',
+    },
+  })
+
   return (
-    <Text>Home page</Text>
+    <SafeAreaView style={styles.container}>
+      <Text>Home page</Text>
+    </SafeAreaView>
   )
 }
 
