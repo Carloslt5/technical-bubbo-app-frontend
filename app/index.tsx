@@ -1,11 +1,8 @@
 import React from 'react'
-import { Text } from 'react-native'
 import { Redirect } from 'expo-router'
 
 const StartPage = () => {
-  return (
-    <Redirect href="/home" />
-  )
+  return <Redirect href='/home' />
 }
 
 export default StartPage
