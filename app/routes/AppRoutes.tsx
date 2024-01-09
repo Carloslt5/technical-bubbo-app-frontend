@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import HomePage from '../(screens)/home'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import BookList from '../(screens)/gallery'
-import theme from '../../styles/theme'
+import theme from './../styles/theme'
 
 const Tab = createBottomTabNavigator()
 
@@ -43,6 +43,7 @@ const AppRoutes = () => {
         name='home'
         component={HomePage}
         options={{
+          headerShown: false,
           tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (
             <Ionicons
