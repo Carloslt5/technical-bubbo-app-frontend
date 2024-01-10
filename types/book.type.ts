@@ -1,4 +1,5 @@
 export interface Book {
+  id: string
   author: string
   country: string
   imageLink: string

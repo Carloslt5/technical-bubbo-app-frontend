@@ -14,21 +14,19 @@ const BooksList = () => {
       backgroundColor: 'grey',
     },
   })
+
   return (
     <>
-      {booksData === null ? (
+      {booksData == null ? (
         <Text>Loading...</Text>
       ) : (
-        booksData.map((book, idx) => (
+        booksData.map((book) => (
           <Link
-            href='/gallery/1234'
-            key={idx}
+            href={`/gallery/${book.id}`}
+            key={book.id}
             style={syles.padding}
           >
-            <BookCard
-              key={idx}
-              {...book}
-            />
+            <BookCard {...book} />
           </Link>
         ))
       )}

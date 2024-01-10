@@ -14,6 +14,10 @@ class BookServices {
   getBooks = async (): Promise<AxiosResponse<Book[]>> => {
     return await this.api.get(`/books`)
   }
+
+  getOneBook = async (id: string): Promise<AxiosResponse<Book>> => {
+    return await this.api.get(`/books/${id}`)
+  }
 }
 
 const bookservices = new BookServices()
