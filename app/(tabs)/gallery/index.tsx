@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { Text } from 'react-native'
 
-import { useFechBooks } from '../../hooks/useFechBooks'
-import BooksList from '../../components/BooksList'
+import { useFechBooks } from '../../../hooks/useFechBooks'
+import BooksList from '../../../components/BooksList'
 
 const BookListPage = () => {
   const { fechBooksData } = useFechBooks()

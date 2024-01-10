@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { type Book } from '../../../../types/book.type'
+import { type Book } from '../../../types/book.type'
 
 export interface BooksData {
   booksData: Book[] | null

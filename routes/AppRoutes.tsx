@@ -1,12 +1,8 @@
 import React from 'react'
 import { Platform, StyleSheet } from 'react-native'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import HomePage from '../(screens)/home'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import BookList from '../(screens)/gallery'
 import theme from './../styles/theme'
-
-const Tab = createBottomTabNavigator()
+import { Tabs } from 'expo-router'
 
 const styles = StyleSheet.create({
   tab: {
@@ -30,7 +26,7 @@ const styles = StyleSheet.create({
 
 const AppRoutes = () => {
   return (
-    <Tab.Navigator
+    <Tabs
       screenOptions={{
         headerShown: Platform.OS !== 'web',
         headerStatusBarHeight: 0,
@@ -39,11 +35,9 @@ const AppRoutes = () => {
         tabBarInactiveTintColor: theme.colors.blue500,
       }}
     >
-      <Tab.Screen
-        name='home'
-        component={HomePage}
+      <Tabs.Screen
+        name='home/index'
         options={{
-          headerShown: false,
           tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (
             <Ionicons
@@ -54,9 +48,8 @@ const AppRoutes = () => {
           ),
         }}
       />
-      <Tab.Screen
-        name='gallery'
-        component={BookList}
+      <Tabs.Screen
+        name='gallery/index'
         options={{
           tabBarLabel: 'Gallery',
           tabBarIcon: ({ color }) => (
@@ -68,7 +61,7 @@ const AppRoutes = () => {
           ),
         }}
       />
-    </Tab.Navigator>
+    </Tabs>
   )
 }
 

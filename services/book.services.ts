@@ -1,5 +1,5 @@
 import axios, { type AxiosResponse, type AxiosInstance } from 'axios'
-import { type Book } from './../../types/book.type'
+import { type Book } from '../types/book.type'
 import { API_URL } from '@env'
 
 class BookServices {
@@ -12,7 +12,7 @@ class BookServices {
   }
 
   getBooks = async (): Promise<AxiosResponse<Book[]>> => {
-    return this.api.get(`/books`)
+    return await this.api.get(`/books`)
   }
 }
 
