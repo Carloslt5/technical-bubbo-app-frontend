@@ -23,5 +23,6 @@ module.exports = {
   plugins: ['react'],
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
   },
 }

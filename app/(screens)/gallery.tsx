@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Text } from 'react-native'
 
-const BookList = () => {
-  return <Text>Book List</Text>
+import { useFechBooks } from '../hooks/useFechBooks'
+import BooksList from '../components/BooksList'
+
+const BookListPage = () => {
+  const { fechBooksData } = useFechBooks()
+
+  useEffect(() => {
+    fechBooksData()
+  }, [])
+
+  return (
+    <>
+      <Text>Book List</Text>
+      <BooksList />
+    </>
+  )
 }
 
-export default BookList
+export default BookListPage
