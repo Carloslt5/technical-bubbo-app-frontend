@@ -12,7 +12,7 @@ const theme = {
     error: '#ff6154',
   },
   fontSizes: {
-    h1: 50,
+    h1: 40,
     subheading: 18,
     body: 14,
     small: 12,

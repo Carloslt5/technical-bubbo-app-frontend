@@ -3,12 +3,12 @@ import { type Book } from '../../../types/book.type'
 
 export interface BooksData {
   booksData: Book[] | null
-  userLoading: boolean
+  booksLoading: boolean
 }
 
 const initialStateData: BooksData = {
   booksData: null,
-  userLoading: false,
+  booksLoading: false,
 }
 
 export const booksDataSlice = createSlice({
@@ -16,14 +16,14 @@ export const booksDataSlice = createSlice({
   initialState: initialStateData,
   reducers: {
     booksDataRequest: (state) => {
-      state.userLoading = true
+      state.booksLoading = true
     },
     booksDataError: (state) => {
-      state.userLoading = false
+      state.booksLoading = false
     },
     booksDataSuccess: (state, action) => {
       state.booksData = action.payload
-      state.userLoading = false
+      state.booksLoading = false
     },
   },
 })

@@ -6,7 +6,7 @@ import BookCard from './BookCard'
 import { Link } from 'expo-router'
 
 const BooksList = () => {
-  const { booksData } = useSelector((state: RootState) => state.booksData)
+  const { booksData, booksLoading } = useSelector((state: RootState) => state.booksData)
   const syles = StyleSheet.create({
     padding: {
       padding: 10,
@@ -17,19 +17,16 @@ const BooksList = () => {
 
   return (
     <>
-      {booksData == null ? (
-        <Text>Loading...</Text>
-      ) : (
-        booksData.map((book) => (
-          <Link
-            href={`/gallery/${book.id}`}
-            key={book.id}
-            style={syles.padding}
-          >
-            <BookCard {...book} />
-          </Link>
-        ))
-      )}
+      {booksLoading ? <Text>Loading...</Text> : false}
+      {booksData?.map((book) => (
+        <Link
+          href={`/gallery/${book.id}`}
+          key={book.id}
+          style={syles.padding}
+        >
+          <BookCard {...book} />
+        </Link>
+      ))}
     </>
   )
 }
