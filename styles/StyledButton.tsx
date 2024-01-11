@@ -5,7 +5,7 @@ import theme from './theme'
 interface StyledButtonProps extends PressableProps {
   children: ReactNode
   style?: StyleProp<PressableProps>
-  button: 'primary' | 'delete' | 'edit'
+  button: 'primary' | 'delete' | 'edit' | 'submit'
 }
 
 const styles = StyleSheet.create({
@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
   editButton: {
     backgroundColor: theme.colors.blue500,
   },
+  submitButton: {
+    backgroundColor: theme.colors.blue900,
+  },
 })
 
 const StyledButton = ({ children, button, style, onPress, ...props }: StyledButtonProps) => {
@@ -34,6 +37,7 @@ const StyledButton = ({ children, button, style, onPress, ...props }: StyledButt
     button === 'primary' && styles.primaryButton,
     button === 'delete' && styles.deleteButton,
     button === 'edit' && styles.editButton,
+    button === 'submit' && styles.submitButton,
     style,
   ]
 

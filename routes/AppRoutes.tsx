@@ -61,6 +61,19 @@ const AppRoutes = () => {
           ),
         }}
       />
+      <Tabs.Screen
+        name='create/index'
+        options={{
+          tabBarLabel: 'New Book',
+          tabBarIcon: ({ color }) => (
+            <Ionicons
+              name='bookmark'
+              size={20}
+              color={color}
+            />
+          ),
+        }}
+      />
     </Tabs>
   )
 }
