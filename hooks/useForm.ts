@@ -7,6 +7,7 @@ export interface FormBookData {
   title: string
   year: string
   pages: string
+  country: string
   language: string
   imageLink: string
   link: string
@@ -18,6 +19,7 @@ export const useForm = () => {
     title: '',
     year: '',
     pages: '',
+    country: '',
     language: '',
     imageLink: '',
     link: '',

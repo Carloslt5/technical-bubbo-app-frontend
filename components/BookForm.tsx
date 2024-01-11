@@ -46,6 +46,13 @@ const BookForm = () => {
         value={bookData.pages}
       />
       <StyledInput
+        placeholder='Country'
+        onChangeText={(text) => {
+          handleChange('country', text)
+        }}
+        value={bookData?.country}
+      />
+      <StyledInput
         placeholder='Language'
         onChangeText={(text) => {
           handleChange('language', text)

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-
 import StyledForm from '../styles/StyledForm'
 import StyledText from '../styles/StyledText'
 import { StyledInput } from '../styles/StyledInput'
@@ -66,6 +65,13 @@ const BookEditForm = ({ titleForm, initialBookData }: BookEditFormProps) => {
           handleChange('year', text)
         }}
         value={bookData?.year}
+      />
+      <StyledInput
+        placeholder='Country'
+        onChangeText={(text) => {
+          handleChange('country', text)
+        }}
+        value={bookData?.language}
       />
       <StyledInput
         placeholder='Pages'
