@@ -69,7 +69,9 @@ const BookForm = () => {
 
       <StyledButton
         button='submit'
-        onPress={handleFormSubmit}
+        onPress={() => {
+          handleFormSubmit()
+        }}
       >
         <StyledText color='textWhite'>Submit</StyledText>
       </StyledButton>
