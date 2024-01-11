@@ -3,14 +3,21 @@ import { useFechBooks } from '../../../hooks/useFechBooks'
 import StyledText from '../../../styles/StyledText'
 import BooksList from '../../../components/BooksList'
 import MainContainer from '../../../styles/MainContainer'
-import { ScrollView } from 'react-native'
+import { ScrollView, Text } from 'react-native'
+import { useSelector } from 'react-redux'
+import { type RootState } from '../../../store'
 
 const BookListPage = () => {
   const { fechBooksData } = useFechBooks()
+  const { booksData, booksLoading } = useSelector((state: RootState) => state.booksData)
 
   useEffect(() => {
     fechBooksData()
   }, [])
+
+  if (booksLoading || booksData === null) {
+    return <Text>Loading...</Text>
+  }
 
   return (
     <ScrollView>
@@ -21,7 +28,7 @@ const BookListPage = () => {
         >
           Book List
         </StyledText>
-        <BooksList />
+        <BooksList booksData={booksData} />
       </MainContainer>
     </ScrollView>
   )

@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import bookservices from '../services/book.services'
 import { router } from 'expo-router'
+import { useFechBooks } from './useFechBooks'
 
 export const useForm = () => {
+  const { fechBooksData } = useFechBooks()
   const [bookData, setBookData] = useState({
     author: '',
     title: '',
@@ -20,6 +22,7 @@ export const useForm = () => {
   const handleFormSubmit = async () => {
     try {
       await bookservices.createBook(bookData)
+      fechBooksData()
       router.replace('/gallery')
     } catch (error) {
       console.error('Error submitting book:', error)

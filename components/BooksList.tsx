@@ -1,16 +1,12 @@
 import React from 'react'
-import { Text, View } from 'react-native'
-import { useSelector } from 'react-redux'
-import { type RootState } from './../store'
+import { View } from 'react-native'
 import BookCard from './BookCard'
+import { type Book } from '../types/book.type'
 
-const BooksList = () => {
-  const { booksData, booksLoading } = useSelector((state: RootState) => state.booksData)
-
-  if (booksLoading || booksData === null) {
-    return <Text>Loading...</Text>
-  }
-
+interface BooksListProps {
+  booksData: Book[]
+}
+const BooksList = ({ booksData }: BooksListProps) => {
   return (
     <>
       {booksData.map((book) => (

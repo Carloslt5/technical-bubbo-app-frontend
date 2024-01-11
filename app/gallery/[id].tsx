@@ -1,9 +1,9 @@
 import { Text } from 'react-native'
 import React, { useEffect } from 'react'
 import { Stack, useLocalSearchParams } from 'expo-router'
-import { useFechBooks } from '../../hooks/useFechBooks'
 import BooksDetails from '../../components/BooksDetails'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { useFechBooks } from '../../hooks/useFechBooks'
 
 const BooksDetailsPage = () => {
   const { id }: { id?: string } = useLocalSearchParams()

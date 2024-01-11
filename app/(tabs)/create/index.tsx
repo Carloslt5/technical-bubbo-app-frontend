@@ -12,11 +12,11 @@ const NewBookPage = () => {
 
 const styles = StyleSheet.create({
   container: {
-    width: '90%',
+    width: '100%',
+    paddingHorizontal: 10,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1,
-    marginHorizontal: 'auto',
   },
 })
 
