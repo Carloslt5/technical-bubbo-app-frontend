@@ -7,8 +7,10 @@ interface StyledViewProps extends ViewProps {
 
 const styles = StyleSheet.create({
   flexContainer: {
-    width: '90%',
+    width: '100%',
     gap: 10,
+    paddingHorizontal: 10,
+    paddingBottom: 70,
   },
 })
 

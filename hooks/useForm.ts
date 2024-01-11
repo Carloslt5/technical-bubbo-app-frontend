@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import bookservices from '../services/book.services'
+import { router } from 'expo-router'
 
 export const useForm = () => {
   const [bookData, setBookData] = useState({
@@ -15,13 +17,18 @@ export const useForm = () => {
     setBookData((prevData) => ({ ...prevData, [property]: text }))
   }
 
-  const handleSubmit = () => {
-    console.log(bookData)
+  const handleFormSubmit = async () => {
+    try {
+      await bookservices.createBook(bookData)
+      router.replace('/gallery')
+    } catch (error) {
+      console.error('Error submitting book:', error)
+    }
   }
 
   return {
     bookData,
     handleChange,
-    handleSubmit,
+    handleFormSubmit,
   }
 }

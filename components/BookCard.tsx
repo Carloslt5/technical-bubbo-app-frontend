@@ -6,7 +6,7 @@ import StyledCard from '../styles/StyledCard'
 import { Link } from 'expo-router'
 import StyledButton from '../styles/StyledButton'
 
-const BookCard = ({ id, title, author, year, imageLink }: Book) => {
+const BookCard = ({ id, title, author, imageLink }: Book) => {
   return (
     <StyledCard>
       <View style={styles.bodyContainer}>
@@ -27,7 +27,6 @@ const BookCard = ({ id, title, author, year, imageLink }: Book) => {
               {title}
             </StyledText>
             <StyledText>{author}</StyledText>
-            <StyledText fontSize='small'>Year: {year}</StyledText>
           </View>
           <StyledButton button='primary'>
             <Link

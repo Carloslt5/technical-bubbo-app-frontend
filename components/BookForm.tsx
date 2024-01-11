@@ -6,7 +6,7 @@ import { StyledInput } from '../styles/StyledInput'
 import StyledButton from '../styles/StyledButton'
 
 const BookForm = () => {
-  const { bookData, handleChange, handleSubmit } = useForm()
+  const { bookData, handleChange, handleFormSubmit } = useForm()
 
   return (
     <StyledForm>
@@ -69,7 +69,7 @@ const BookForm = () => {
 
       <StyledButton
         button='submit'
-        onPress={handleSubmit}
+        onPress={handleFormSubmit}
       >
         <StyledText color='textWhite'>Submit</StyledText>
       </StyledButton>

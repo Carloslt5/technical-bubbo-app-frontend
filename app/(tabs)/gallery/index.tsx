@@ -2,9 +2,8 @@ import React, { useEffect } from 'react'
 import { useFechBooks } from '../../../hooks/useFechBooks'
 import StyledText from '../../../styles/StyledText'
 import BooksList from '../../../components/BooksList'
-import StyledButton from '../../../styles/StyledButton'
 import MainContainer from '../../../styles/MainContainer'
-import { View } from 'react-native'
+import { ScrollView } from 'react-native'
 
 const BookListPage = () => {
   const { fechBooksData } = useFechBooks()
@@ -13,12 +12,8 @@ const BookListPage = () => {
     fechBooksData()
   }, [])
 
-  const onPressFunction = () => {
-    console.log('object')
-  }
-
   return (
-    <View style={{ alignItems: 'center' }}>
+    <ScrollView>
       <MainContainer>
         <StyledText
           fontWeight='bold'
@@ -26,15 +21,9 @@ const BookListPage = () => {
         >
           Book List
         </StyledText>
-        <StyledButton
-          button='primary'
-          onPress={onPressFunction}
-        >
-          <StyledText>Add Book</StyledText>
-        </StyledButton>
         <BooksList />
       </MainContainer>
-    </View>
+    </ScrollView>
   )
 }
 
