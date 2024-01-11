@@ -1,32 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { type Book } from '../../../types/book.type'
 
-export interface BooksData {
-  booksData: Book[] | null
-  booksLoading: boolean
+export interface BookData {
+  bookData: Book | null
+  bookLoading: boolean
 }
 
-const initialStateData: BooksData = {
-  booksData: null,
-  booksLoading: false,
+const initialStateData: BookData = {
+  bookData: null,
+  bookLoading: false,
 }
 
-export const booksDataSlice = createSlice({
-  name: 'Books List',
+export const bookDataSlice = createSlice({
+  name: 'Book',
   initialState: initialStateData,
   reducers: {
-    booksDataRequest: (state) => {
-      state.booksLoading = true
+    bookDataRequest: (state) => {
+      state.bookLoading = true
     },
-    booksDataError: (state) => {
-      state.booksLoading = false
+    bookDataError: (state) => {
+      state.bookLoading = false
     },
-    booksDataSuccess: (state, action) => {
-      state.booksData = action.payload
-      state.booksLoading = false
+    bookDataSuccess: (state, action) => {
+      state.bookData = action.payload
+      state.bookLoading = false
     },
   },
 })
 
-export const { booksDataRequest, booksDataError, booksDataSuccess } = booksDataSlice.actions
-export default booksDataSlice.reducer
+export const { bookDataRequest, bookDataError, bookDataSuccess } = bookDataSlice.actions
+export default bookDataSlice.reducer

@@ -5,7 +5,7 @@ export interface Book {
   imageLink: string
   language: string
   link: string
-  pages: number
+  pages: string
   title: string
-  year: number
+  year: string
 }

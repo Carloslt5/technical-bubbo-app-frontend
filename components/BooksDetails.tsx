@@ -7,6 +7,7 @@ import StyledText from '../styles/StyledText'
 import StyledButton from '../styles/StyledButton'
 import theme from '../styles/theme'
 import { useFechBooks } from '../hooks/useFechBooks'
+import { Link } from 'expo-router'
 
 const BooksDetails = ({
   id,
@@ -53,7 +54,9 @@ const BooksDetails = ({
             </View>
             <View style={styles.buttonBox}>
               <StyledButton button='edit'>
-                <StyledText>Edit details</StyledText>
+                <StyledText>
+                  <Link href={`/edit/${id}`}>Edit details</Link>
+                </StyledText>
               </StyledButton>
               <StyledButton
                 button='delete'

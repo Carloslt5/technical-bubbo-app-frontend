@@ -4,15 +4,13 @@ import {
   booksDataError,
   booksDataRequest,
   booksDataSuccess,
-} from '../store/features/BookData/reducer'
+} from '../store/features/BooksListData/reducer'
 import bookservices from '../services/book.services'
-import { useState } from 'react'
-import { type Book } from '../types/book.type'
 import { router } from 'expo-router'
+import { bookDataError, bookDataRequest, bookDataSuccess } from '../store/features/BookData/reducer'
 
 export const useFechBooks = () => {
   const dispatch = useDispatch()
-  const [bookData, setBookData] = useState<Book | null>(null)
 
   const fechBooksData = async () => {
     try {
@@ -28,8 +26,16 @@ export const useFechBooks = () => {
   }
 
   const fechOneBookData = async (bookID: string) => {
-    const { data } = await bookservices.getOneBook(bookID)
-    setBookData(data)
+    try {
+      dispatch(bookDataRequest())
+      const { data } = await bookservices.getOneBook(bookID)
+      dispatch(bookDataSuccess(data))
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        dispatch(bookDataError())
+        alert('Bad Request')
+      }
+    }
   }
 
   const deleteOneBookData = async (bookID: string) => {
@@ -41,6 +47,5 @@ export const useFechBooks = () => {
     fechBooksData,
     fechOneBookData,
     deleteOneBookData,
-    bookData,
   }
 }
