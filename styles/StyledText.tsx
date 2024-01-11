@@ -4,6 +4,7 @@ import theme from './theme'
 
 interface StyledTextProps {
   children: ReactNode
+  textAlign?: 'center'
   color?: 'textPrimary' | 'textSecondary' | 'textWhite' | 'textError'
   fontSize?: 'subheading' | 'small' | 'h1'
   fontWeight?: 'normal' | 'bold'
@@ -18,6 +19,9 @@ const styles = StyleSheet.create({
     color: theme.colors.textPrimary,
     fontSize: theme.fontSizes.body,
     fontWeight: theme.fontWeights.normal,
+  },
+  textAlign: {
+    textAlign: 'center',
   },
   colorTextSecondary: {
     color: theme.colors.textSecondary,
@@ -54,7 +58,7 @@ const StyledText = ({
   color,
   fontSize,
   fontWeight,
-  language,
+  textAlign,
   textDecoration,
   style,
   ...props
@@ -65,6 +69,7 @@ const StyledText = ({
     color === 'textSecondary' && styles.colorTextSecondary,
     color === 'textWhite' && styles.colorWhite,
     color === 'textError' && styles.colorError,
+    textAlign === 'center' && styles.textAlign,
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontSize === 'small' && styles.fontSizeSmall,
     fontSize === 'h1' && styles.fontSizeTitle,

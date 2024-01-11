@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import { useFechBooks } from '../../../hooks/useFechBooks'
-import BooksList from '../../../components/BooksList'
 import StyledText from '../../../styles/StyledText'
-import ViewContainer from '../../../styles/ViewContainer'
-import { API_URL } from '@env'
+import MainContainer from '../../../styles/MainContainer'
+import BooksList from '../../../components/BooksList'
 
 const BookListPage = () => {
   const { fechBooksData } = useFechBooks()
@@ -13,8 +12,7 @@ const BookListPage = () => {
   }, [])
 
   return (
-    <ViewContainer>
-      <StyledText>{API_URL}</StyledText>
+    <MainContainer>
       <StyledText
         fontWeight='bold'
         fontSize='h1'
@@ -22,7 +20,7 @@ const BookListPage = () => {
         Book List
       </StyledText>
       <BooksList />
-    </ViewContainer>
+    </MainContainer>
   )
 }
 

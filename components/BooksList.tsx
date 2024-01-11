@@ -1,34 +1,33 @@
 import React from 'react'
-import { StyleSheet, Text } from 'react-native'
+import { FlatList, StyleSheet, Text, View } from 'react-native'
 import { useSelector } from 'react-redux'
 import { type RootState } from './../store'
 import BookCard from './BookCard'
-import { Link } from 'expo-router'
 
 const BooksList = () => {
   const { booksData, booksLoading } = useSelector((state: RootState) => state.booksData)
-  const syles = StyleSheet.create({
-    padding: {
-      padding: 10,
-      margin: 10,
-      backgroundColor: 'grey',
-    },
-  })
+
+  if (booksLoading) {
+    return <Text>Loading...</Text>
+  }
 
   return (
-    <>
-      {booksLoading ? <Text>Loading...</Text> : false}
-      {booksData?.map((book) => (
-        <Link
-          href={`/gallery/${book.id}`}
-          key={book.id}
-          style={syles.padding}
-        >
+    <FlatList
+      data={booksData}
+      renderItem={({ item: book }) => (
+        <View style={styles.gallery}>
           <BookCard {...book} />
-        </Link>
-      ))}
-    </>
+        </View>
+      )}
+      keyExtractor={(item) => item.id.toString()}
+    />
   )
 }
 
+const styles = StyleSheet.create({
+  gallery: {
+    flex: 1,
+    marginBottom: 5,
+  },
+})
 export default BooksList

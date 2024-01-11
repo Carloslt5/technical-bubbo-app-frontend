@@ -1,17 +1,18 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, Text } from 'react-native'
+import StyledText from '../../../styles/StyledText'
+import MainContainer from '../../../styles/MainContainer'
 
 const HomePage = () => {
-  const styles = StyleSheet.create({
-    container: {
-      alignItems: 'center',
-    },
-  })
-
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>Home page</Text>
-    </SafeAreaView>
+    <MainContainer>
+      <StyledText
+        fontSize='h1'
+        fontWeight='bold'
+        textAlign='center'
+      >
+        Home page
+      </StyledText>
+    </MainContainer>
   )
 }
 
