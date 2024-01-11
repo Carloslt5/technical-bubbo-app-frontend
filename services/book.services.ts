@@ -1,6 +1,7 @@
 import axios, { type AxiosResponse, type AxiosInstance } from 'axios'
 import { type Book } from '../types/book.type'
 import { API_URL } from '@env'
+import { type FormBookData } from '../hooks/useForm'
 
 class BookServices {
   api: AxiosInstance
@@ -19,8 +20,12 @@ class BookServices {
     return await this.api.get(`/books/${id}`)
   }
 
-  createBook = async (bookData: unknown): Promise<AxiosResponse<Book>> => {
+  createBook = async (bookData: FormBookData): Promise<AxiosResponse<Book>> => {
     return await this.api.post(`/books/create`, bookData)
+  }
+
+  deleteBook = async (id: string): Promise<AxiosResponse<Book>> => {
+    return await this.api.delete(`/books/delete/${id}`)
   }
 }
 

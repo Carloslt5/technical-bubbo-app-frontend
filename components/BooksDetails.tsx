@@ -6,6 +6,7 @@ import StyledCard from '../styles/StyledCard'
 import StyledText from '../styles/StyledText'
 import StyledButton from '../styles/StyledButton'
 import theme from '../styles/theme'
+import { useFechBooks } from '../hooks/useFechBooks'
 
 const BooksDetails = ({
   id,
@@ -18,6 +19,7 @@ const BooksDetails = ({
   year,
   imageLink,
 }: Book) => {
+  const { deleteOneBookData } = useFechBooks()
   const handleLinkPress = () => {
     Linking.openURL(link)
   }
@@ -53,7 +55,12 @@ const BooksDetails = ({
               <StyledButton button='edit'>
                 <StyledText>Edit details</StyledText>
               </StyledButton>
-              <StyledButton button='delete'>
+              <StyledButton
+                button='delete'
+                onPress={() => {
+                  deleteOneBookData(id)
+                }}
+              >
                 <StyledText>Delete Book</StyledText>
               </StyledButton>
             </View>

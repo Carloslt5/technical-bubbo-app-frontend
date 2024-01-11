@@ -8,6 +8,7 @@ import {
 import bookservices from '../services/book.services'
 import { useState } from 'react'
 import { type Book } from '../types/book.type'
+import { router } from 'expo-router'
 
 export const useFechBooks = () => {
   const dispatch = useDispatch()
@@ -31,9 +32,15 @@ export const useFechBooks = () => {
     setBookData(data)
   }
 
+  const deleteOneBookData = async (bookID: string) => {
+    await bookservices.deleteBook(bookID)
+    router.replace('/gallery')
+  }
+
   return {
     fechBooksData,
     fechOneBookData,
+    deleteOneBookData,
     bookData,
   }
 }
