@@ -6,6 +6,7 @@ import MainContainer from '../../../styles/MainContainer'
 import { ScrollView, Text } from 'react-native'
 import { useSelector } from 'react-redux'
 import { type RootState } from '../../../store'
+import { Stack } from 'expo-router'
 
 const BookListPage = () => {
   const { fechBooksData } = useFechBooks()
@@ -21,6 +22,12 @@ const BookListPage = () => {
 
   return (
     <ScrollView>
+      <Stack.Screen
+        options={{
+          headerTitle: 'Gallery',
+          headerTitleAlign: 'center',
+        }}
+      />
       <MainContainer>
         <StyledText
           fontWeight='bold'

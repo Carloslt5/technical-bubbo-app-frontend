@@ -71,7 +71,7 @@ const BookEditForm = ({ titleForm, initialBookData }: BookEditFormProps) => {
         onChangeText={(text) => {
           handleChange('country', text)
         }}
-        value={bookData?.language}
+        value={bookData?.country}
       />
       <StyledInput
         placeholder='Pages'
