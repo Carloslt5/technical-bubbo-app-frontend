@@ -69,8 +69,8 @@ const BookForm = () => {
 
       <StyledButton
         button='submit'
-        onPress={() => {
-          handleFormSubmit()
+        onPress={async () => {
+          await handleFormSubmit()
         }}
       >
         <StyledText color='textWhite'>Submit</StyledText>

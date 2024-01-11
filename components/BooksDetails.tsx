@@ -57,8 +57,8 @@ const BooksDetails = ({
               </StyledButton>
               <StyledButton
                 button='delete'
-                onPress={() => {
-                  deleteOneBookData(id)
+                onPress={async () => {
+                  await deleteOneBookData(id)
                 }}
               >
                 <StyledText>Delete Book</StyledText>
