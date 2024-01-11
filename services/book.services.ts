@@ -24,6 +24,10 @@ class BookServices {
     return await this.api.post(`/books/create`, bookData)
   }
 
+  updateBook = async (id: string, bookData: FormBookData): Promise<AxiosResponse<Book>> => {
+    return await this.api.put(`/books/edit/${id}`, bookData)
+  }
+
   deleteBook = async (id: string): Promise<AxiosResponse<Book>> => {
     return await this.api.delete(`/books/delete/${id}`)
   }

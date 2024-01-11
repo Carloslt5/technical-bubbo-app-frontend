@@ -5,6 +5,8 @@ import StyledText from '../styles/StyledText'
 import { StyledInput } from '../styles/StyledInput'
 import StyledButton from '../styles/StyledButton'
 import { type FormBookData } from '../hooks/useForm'
+import bookservices from '../services/book.services'
+import { router, useLocalSearchParams } from 'expo-router'
 
 interface BookEditFormProps {
   titleForm: string
@@ -12,6 +14,7 @@ interface BookEditFormProps {
 }
 
 const BookEditForm = ({ titleForm, initialBookData }: BookEditFormProps) => {
+  const { id }: { id?: string } = useLocalSearchParams()
   const [bookData, setBookData] = useState<FormBookData>(initialBookData)
 
   const handleChange = (field: string, value: string) => {
@@ -22,7 +25,10 @@ const BookEditForm = ({ titleForm, initialBookData }: BookEditFormProps) => {
   }
 
   const handleFormSubmit = async () => {
-    console.log('')
+    if (id != null) {
+      await bookservices.updateBook(id, bookData)
+      router.replace(`/gallery/${id}`)
+    }
   }
 
   useEffect(() => {
