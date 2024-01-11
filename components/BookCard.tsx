@@ -13,8 +13,8 @@ const BookCard = ({ id, title, author, year, imageLink }: Book) => {
         <View>
           <Image
             source={{ uri: imageLink }}
-            style={{ width: 120, height: 150 }}
-            resizeMode='contain'
+            style={styles.image}
+            resizeMode='center'
           />
         </View>
 
@@ -29,7 +29,7 @@ const BookCard = ({ id, title, author, year, imageLink }: Book) => {
             <StyledText>{author}</StyledText>
             <StyledText fontSize='small'>Year: {year}</StyledText>
           </View>
-          <StyledButton>
+          <StyledButton button='primary'>
             <Link
               href={`/gallery/${id}`}
               key={id}
@@ -52,6 +52,10 @@ const styles = StyleSheet.create({
   detailsContainer: {
     flex: 1,
     justifyContent: 'space-between',
+  },
+  image: {
+    width: 120,
+    height: 150,
   },
 })
 

@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
     padding: 10,
     ...Platform.select({
       web: {
-        maxWidth: 650,
         margin: 'auto',
         width: '100%',
       },

@@ -1,8 +1,9 @@
-import { View, Text } from 'react-native'
+import { Text } from 'react-native'
 import React, { useEffect } from 'react'
 import { Stack, useLocalSearchParams } from 'expo-router'
 import { useFechBooks } from '../../hooks/useFechBooks'
 import BooksDetails from '../../components/BooksDetails'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const BooksDetailsPage = () => {
   const { id }: { id?: string } = useLocalSearchParams()
@@ -19,11 +20,10 @@ const BooksDetailsPage = () => {
   }
 
   return (
-    <View>
+    <SafeAreaView>
       <Stack.Screen options={{ headerTitle: 'Detalles' }} />
-      <Text>BooksDetails</Text>
       <BooksDetails {...bookData} />
-    </View>
+    </SafeAreaView>
   )
 }
 

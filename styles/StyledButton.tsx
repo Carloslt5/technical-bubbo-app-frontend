@@ -1,30 +1,46 @@
 import React, { type ReactNode } from 'react'
-import { type StyleProp, StyleSheet, type ViewStyle, Pressable } from 'react-native'
+import { StyleSheet, Pressable, type PressableProps, type StyleProp } from 'react-native'
 import theme from './theme'
 
-interface StyledButtonProps {
+interface StyledButtonProps extends PressableProps {
   children: ReactNode
-  button?: 'primary'
-  style?: StyleProp<ViewStyle>
+  style?: StyleProp<PressableProps>
+  button: 'primary' | 'delete' | 'edit'
 }
 
 const styles = StyleSheet.create({
   button: {
     color: theme.colors.textPrimary,
     fontSize: theme.fontSizes.body,
-    backgroundColor: theme.colors.blue500,
     borderRadius: 6,
     paddingVertical: 6,
     paddingHorizontal: 12,
+    alignItems: 'center',
+  },
+  primaryButton: {
+    backgroundColor: theme.colors.blue500,
+  },
+  deleteButton: {
+    backgroundColor: theme.colors.error,
+  },
+  editButton: {
+    backgroundColor: theme.colors.blue500,
   },
 })
 
-const StyledButton = ({ children, button, style, ...props }: StyledButtonProps) => {
-  const buttonStyle = [styles.button, style]
+const StyledButton = ({ children, button, style, onPress, ...props }: StyledButtonProps) => {
+  const buttonStyle = [
+    styles.button,
+    button === 'primary' && styles.primaryButton,
+    button === 'delete' && styles.deleteButton,
+    button === 'edit' && styles.editButton,
+    style,
+  ]
 
   return (
     <Pressable
       style={buttonStyle}
+      onPress={onPress}
       {...props}
     >
       {children}
